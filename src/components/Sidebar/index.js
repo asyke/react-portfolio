@@ -94,7 +94,7 @@ const Sidebar = () => {
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}
         icon={faBars}
-        color="#ffd700"
+        color="white"
         size="3x"
         className="hamburger-icon"
       />

@@ -8,6 +8,38 @@
     max-height: 90%;
   }
 
+  .myImage {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    border: 5px solid lightblue;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 20px lightblue;
+    }
+    @media (max-width: 1360px) {
+      width: 300px;
+      height: 300px;
+      top: 20%;
+      right: 10%;
+    }
+
+    @media (max-width: 768px) {
+      width: 200px;
+      height: 200px;
+      top: 30%;
+      right: 5%;
+      display: block;
+    }
+  }
+
   h1 {
     color: #fff;
     font-size: 56px;
@@ -38,7 +70,6 @@
       animation: fadeIn 1s 4.1s backwards;
       opacity: 0.6;
     }
-
   }
 
   h2 {
@@ -51,91 +82,51 @@
     animation: fadeIn 1s 4.2s backwards;
   }
 
-.flat-button {
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 4px;
-  font-family: sans-serif;
-  text-decoration: none;
-  padding: 10px 18px;
-  border: 1px solid #ffffff;
-  margin-top: 25px;
-  float: left;
-  animation: fadeIn 1s 4.4s backwards;
-  white-space: nowrap;
-  transition: 0.3s;
+  .flat-button {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid #ffffff;
+    margin-top: 25px;
+    float: left;
+    white-space: nowrap;
+    transition: 0.3s;
 
-  &:hover {
-    background: #A5D7E8;
-    color: #333;
-    box-shadow: 0 10px 10px rgba(242, 242, 242, 0.2);
-    transform: translate3d(0, -5px, 0);
+    &:hover {
+      background: #a5d7e8;
+      color: #333;
+      box-shadow: 0 10px 10px rgba(242, 242, 242, 0.2);
+      transform: translate3d(0, -5px, 0);
+    }
   }
 }
 
-}
-
-
-@media screen and (max-width: 1200px) {
-  .tags,
-  .home-page h1:before,
-  .home-page h1:after {
-    display: none;
+@media screen and (max-width: 1250px) {
+  .home-page {
+    display: flex;
+    flex-direction: column;
   }
-
-  .home-page .text-zone {
-    position: initial;
-    width: 100%;
+  .text-zone {
+    // position: initial;
+    max-width: 100%;
+    // margin-top: 10%;
+    // margin-left: 20%;
     transform: none;
     padding: 10px;
     box-sizing: border-box;
   }
-
-  .home-page .flat-button {
+  
+  .myImageContainer {
+    display: block;
+  }
+  .flat-button {
     float: none;
     display: block;
     margin: 20px auto 0 auto;
     width: 124px;
   }
-
-  .logo-container {
-    position: relative;
-    width: 100px;
-    height: auto;
-    top: 50px;
-    right: 0;
-    box-sizing: border-box;
-    margin: auto;
-    left: 0;
-  }
-
-  .logo-container svg {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    margin: auto;
-  }
 }
-
-
-.myImage {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  overflow: hidden;
-  object-fit: cover;
-  border: 5px solid lightblue;
-  position: absolute;
-  right: 20%;
-  top: 10%;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 20px lightblue;
-  }
-}
-

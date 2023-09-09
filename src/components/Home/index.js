@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters/index.js'
 import myAvatar from '../../assets/images/avatar-img1.jpg'
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
 import './index.scss'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
+  const [loading, setLoading] = useState(true)
 
   const nameArray = ['A', 's', 'y', 'l', 'b', 'e', 'k']
   const jobArray = [
@@ -33,50 +34,75 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    let timeout
+    const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 4100)
 
-    timeout = setTimeout(() => {
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [])
+  useEffect(() => {
+    const timeout = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 5000)
+    }, 9100)
 
     return () => {
       clearTimeout(timeout)
     }
   }, [])
 
+  const override = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    width: '100vw',
+  }
+
   return (
     <>
-      <div className="container home-page">
-        <img className="myImage" src={myAvatar} alt="avatar-img" />
-        <div className="text-zone">
-          <h1>
-            <span className={letterClass}>H</span>
-            <span className={`${letterClass} _12`}>i,</span>
-            <br />
-            <span className={`${letterClass} _13`}>I</span>
-            <span className={`${letterClass} _14`}>'m</span>
-            <span className={`${letterClass} _15`}></span>
+      {loading && (
+        <ClimbingBoxLoader
+          cssOverride={override}
+          color={'white'}
+          loading={loading}
+          size={30}
+        />
+      )}
+      {!loading && (
+        <div className="home-page">
+          {/* <div className="myImageContainer">
+            <img className="myImage" src={myAvatar} alt="avatar-img" />
+          </div> */}
+          <div className="text-zone">
+            <h1>
+              <span className={`${letterClass} _13`}>H</span>
+              <span className={`${letterClass} _14`}>i,</span>
+              <br />
+              <span className={`${letterClass} _15`}>I</span>
+              <span className={`${letterClass} _16`}>'m</span>
+              <span className={`${letterClass} _17`}></span>
 
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={nameArray}
-              idx={16}
-            />
-            <br />
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={jobArray}
-              idx={23}
-            />
-          </h1>
-          <h2>HTML | CSS | JavaScript | React | Redux </h2>
-          <Link to="/contact" className="flat-button">
-            CONTACT ME
-          </Link>
+              <AnimatedLetters
+                letterClass={letterClass}
+                strArray={nameArray}
+                idx={16}
+              />
+              <br />
+              <AnimatedLetters
+                letterClass={letterClass}
+                strArray={jobArray}
+                idx={23}
+              />
+            </h1>
+            <h2>JavaScript | React | Redux </h2>
+            <Link to="/contact" className="flat-button">
+              CONTACT ME
+            </Link>
+          </div>
         </div>
-      </div>
-
-      <Loader type="pacman" />
+      )}
     </>
   )
 }

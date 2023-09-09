@@ -120,7 +120,7 @@ function Contact() {
           ></iframe>
         </div>
       </div>
-      <Loader type="pacman" />
+      <Loader type="ball-triangle" />
     </>
   )
 }

@@ -1,9 +1,8 @@
 .text-animate {
   display: inline-block;
   opacity: 0;
-  animation: bounceIn;
+  animation: burstIn;
   animation-duration: 1s;
-  animation-delay: 1s;
   animation-fill-mode: forwards;
   min-width: 10px;
 }
@@ -14,17 +13,31 @@
   animation-fill-mode: both;
 
   &:hover {
-    animation: rotate 1s;
+    animation: burstRotate 1s;
     color: #A5D7E8;
   }
 }
 
-@keyframes rotate {
+@keyframes burstIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes burstRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
   }
 }
 
