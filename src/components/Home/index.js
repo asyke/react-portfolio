@@ -72,9 +72,9 @@ const Home = () => {
       )}
       {!loading && (
         <div className="home-page">
-          {/* <div className="myImageContainer">
+          <div className="myImageContainer">
             <img className="myImage" src={myAvatar} alt="avatar-img" />
-          </div> */}
+          </div>
           <div className="text-zone">
             <h1>
               <span className={`${letterClass} _13`}>H</span>
